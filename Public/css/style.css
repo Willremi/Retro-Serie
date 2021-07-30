@@ -1,0 +1,56 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+/* Barre de menu */
+  .bg-info {
+    background-color: rgb(45, 139, 92) !important;
+  }
+  
+/* Main */
+  main {
+    padding-top: 1%;
+    text-align: center;
+  }
+
+/* Titre de la page */
+  h1 {
+    font-weight: bold;
+  }
+
+  .container p {
+    text-align: start;
+  }
+
+  .resumeNull {
+    text-align: center !important;
+  }
+
+  #ligne {
+    border-bottom: 1px solid black;
+  }
+
+/* Boutons de la liste séries par décennies */
+  #btn70, #btn2000, td, td>a {
+    color: white;
+  }
+
+/*Liste de série par décennie*/
+  .listSerie {
+    display: none;
+  }
+
+
+/* Liste de saisons */
+.saisons td {
+  color: black !important;
+}
+
+  @media screen and (min-width: 1200px) {
+    .dropdown-toggle::after{
+      display: none;
+  }
+    .imgAccueil {
+      width: 50%;
+    }
+  }
