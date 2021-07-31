@@ -13,12 +13,13 @@ $pageTitle = $serie['name'];
         <ul>
             <li>Genre : <?= $serie['genre'] ?></li>
             <li>Pays de production : <?= $serie['pays'] ?></li>
-            <!-- <li>Production : </li> -->
+            <?= $serie['creator'] ? "<li>Création : {$serie['creator'][0]['name']}</li>" : "" ?>
+            <li>Diffuseur : <?= $serie['diffuseur'] ?></li>
             <li>Nombre de saison : <?= $serie['nbSaison'] ?></li>
             <li>Nombre de saison : <?= $serie['nbEpisode'] ?></li>
             <li>Date du premier épisode : <?= $serie['dateFirstDiff'] ?></li>
             <li>Date du dernier épisode : <?= $serie['dateLastDiff'] ?></li>
-            <li>Diffuseur : <?= $serie['diffuseur'] ?></li>
+            <li>Statut : <?= $serie['statut'] === 'Ended' ? 'Terminé' : 'En cours' ?></li>
         </ul>
     </div>
     <div class="col-md-6 order-sm-0 order-md-1">
@@ -68,6 +69,6 @@ $pageTitle = $serie['name'];
     </div><!--  fin row -->
 </main>
 <?php
-var_dump($serie);
+var_dump($credits);
 
 // var_dump($serie['production'][0]['name']);

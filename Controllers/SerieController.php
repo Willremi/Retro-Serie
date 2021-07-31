@@ -10,7 +10,8 @@ class SerieController extends Controller
         $api = new OpenApi('c595147bf4af143ab2df16843f9487bf');
 
         $serie = $api->getSerie($id);
+        $credits = $api->getCredits($id);
 
-        $this->render('series/detail', compact('serie'), 'series');
+        $this->render('series/detail', ['serie' => $serie, 'credits' => $credits], 'series');
     }
 }

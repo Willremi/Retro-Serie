@@ -35,7 +35,13 @@ class OpenApi
         return $results;
     }
 
-    public function getSerie(string $id)
+    /**
+     * Fonction pour appeler une série par id
+     *
+     * @param string $id
+     * @return array|null
+     */
+    public function getSerie(string $id): ?array
     {
         $data = $this->callApi('tv/'.$id);
         $results = [
@@ -57,6 +63,19 @@ class OpenApi
             'pays' => $data['production_countries'][0]['name']
         ];
         // var_dump($results);
+        return $results;
+    }
+
+    public function getCredits(string $id)
+    {
+        $data = $this->callApi('tv/'.$id.'/credits');
+        $results = [
+            // Acteurs
+            'cast' => $data['cast'], 
+            // Production/Réalisation
+            'crew' => $data['crew'] 
+        ];
+
         return $results;
     }
 
