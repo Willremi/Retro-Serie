@@ -55,20 +55,44 @@ $pageTitle = $serie['name'];
             </tbody>
         </table>
     </div><!--  fin row -->
-    
+
     <br>
     <div id="ligne"></div>
 
     <div class="row">
         <div class="col-md-6">
             <h2>Distribution</h2>
+            <table class="table-respo table table-success table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Acteurs</th>
+                        <th scope="col">Rôles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($credits['cast'] as $cast) : ?>
+                    <tr>
+                        <td><?= $cast['name'] ?></td>
+                        <td><?= $cast['character'] ?></td>
+                    </tr>
+                <?php endforeach ?>
+                </tbody>
+            </table>
         </div>
         <div class="col-md-6">
             <h2>Production</h2>
+            <table class="table-respo table table-success table-striped table-bordered">
+            <?php foreach ($credits['crew'] as $crew) : ?>
+                    <tr>
+                        <td><?= $crew['name'] ?></td>
+                        <td><?= $crew['job'] ?></td>
+                    </tr>
+                <?php endforeach ?>
+            </table>
         </div>
     </div><!--  fin row -->
 </main>
 <?php
-var_dump($credits);
+// var_dump($credits['crew']);
 
 // var_dump($serie['production'][0]['name']);

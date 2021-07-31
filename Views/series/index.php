@@ -54,7 +54,7 @@ $pageTitle = "Liste des séries";
         </thead>
         <tbody>
             <?php foreach ($list50 as $liste) : ?>
-                <tr>
+                <tr class="liste">
                     <td class="bg-primary"><a href="serie/detail/<?= $liste['idSerie'] ?>" target="_blank"><?= $liste['name'] ?></a></td>
                     <td class="bg-primary"><?= $liste['paysOrigin'] ?></td>
                     <td class="bg-primary"><?= $liste['dateDiff'] ?></td>
@@ -77,7 +77,7 @@ $pageTitle = "Liste des séries";
         </thead>
         <tbody>
             <?php foreach ($list60 as $liste) : ?>
-                <tr>
+                <tr class="liste">
                     <td class="bg-success"><a href="serie/detail/<?= $liste['idSerie'] ?>" target="_blank"><?= $liste['name'] ?></a></td>
                     <td class="bg-success"><?= $liste['paysOrigin'] ?></td>
                     <td class="bg-success"><?= $liste['dateDiff'] ?></td>
@@ -100,7 +100,7 @@ $pageTitle = "Liste des séries";
         </thead>
         <tbody>
             <?php foreach ($list70 as $liste) : ?>
-                <tr>
+                <tr class="liste">
                     <td class="bg-warning"><a href="serie/detail/<?= $liste['idSerie'] ?>" target="_blank"><?= $liste['name'] ?></a></td>
                     <td class="bg-warning"><?= $liste['paysOrigin'] ?></td>
                     <td class="bg-warning"><?= $liste['dateDiff'] ?></td>
@@ -123,7 +123,7 @@ $pageTitle = "Liste des séries";
         </thead>
         <tbody>
             <?php foreach ($list80 as $liste) : ?>
-                <tr>
+                <tr class="liste">
                     <td class="bg-danger"><a href="serie/detail/<?= $liste['idSerie'] ?>" target="_blank"><?= $liste['name'] ?></a></td>
                     <td class="bg-danger"><?= $liste['paysOrigin'] ?></td>
                     <td class="bg-danger"><?= $liste['dateDiff'] ?></td>
@@ -146,7 +146,7 @@ $pageTitle = "Liste des séries";
         </thead>
         <tbody>
             <?php foreach ($list90 as $liste) : ?>
-                <tr>
+                <tr class="liste">
                     <td class="bg-dark"><a href="serie/detail/<?= $liste['idSerie'] ?>" target="_blank"><?= $liste['name'] ?></a></td>
                     <td class="bg-dark"><?= $liste['paysOrigin'] ?></td>
                     <td class="bg-dark"><?= $liste['dateDiff'] ?></td>
@@ -169,7 +169,7 @@ $pageTitle = "Liste des séries";
         </thead>
         <tbody>
             <?php foreach ($list2000 as $liste) : ?>
-                <tr>
+                <tr class="liste">
                     <td class="bg-info"><a href="serie/detail/<?= $liste['idSerie'] ?>" target="_blank"><?= $liste['name'] ?></a></td>
                     <td class="bg-info"><?= $liste['paysOrigin'] ?></td>
                     <td class="bg-info"><?= $liste['dateDiff'] ?></td>

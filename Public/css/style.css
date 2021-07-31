@@ -31,7 +31,7 @@
   }
 
 /* Boutons de la liste séries par décennies */
-  #btn70, #btn2000, td, td>a {
+  #btn70, #btn2000, .liste td, .liste td>a {
     color: white;
   }
 
@@ -42,8 +42,8 @@
 
 
 /* Liste de saisons */
-.saisons td {
-  color: black !important;
+ul {
+  list-style-type: none;
 }
 
   @media screen and (min-width: 1200px) {
