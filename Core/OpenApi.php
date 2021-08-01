@@ -60,7 +60,7 @@ class OpenApi
             'resume' => $data['overview'], 
             'saisons' => $data['seasons'], 
             // 'production' => $data['production_companies'], 
-            'pays' => $data['production_countries'][0]['name']
+            'pays' => $data['production_countries']
         ];
         // var_dump($results);
         return $results;

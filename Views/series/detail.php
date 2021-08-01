@@ -12,7 +12,7 @@ $pageTitle = $serie['name'];
     <div class="col-md-6 order-sm-1 order-md-0">
         <ul>
             <li>Genre : <?= $serie['genre'] ?></li>
-            <li>Pays de production : <?= $serie['pays'] ?></li>
+            <li>Pays de production : <?= !$serie['pays'] ? "Pas d'infos disponibles" : $serie['pays'][0]['name'] ?></li>
             <?= $serie['creator'] ? "<li>Création : {$serie['creator'][0]['name']}</li>" : "" ?>
             <li>Diffuseur : <?= $serie['diffuseur'] ?></li>
             <li>Nombre de saison : <?= $serie['nbSaison'] ?></li>
@@ -46,11 +46,18 @@ $pageTitle = $serie['name'];
             </thead>
             <tbody>
                 <?php foreach ($serie['saisons'] as $saison) : ?>
+                    
                     <tr class="saisons">
-                        <td><?= $saison['name'] ?></td>
-                        <td><?= $saison['episode_count'] ?></td>
-                        <td><?= date('d/m/Y', strtotime($saison['air_date'])) ?></td>
+                        
+                        <?php 
+                        if($saison['name'] !== 'Épisodes spéciaux'): ?>
+                            <td><?= $saison['name'] ?></td>
+                            <td><?= $saison['episode_count'] ?></td>
+                            <td><?= date('d/m/Y', strtotime($saison['air_date'])) ?></td>
+
+                        <?php endif ?>
                     </tr>
+                    
                 <?php endforeach ?>
             </tbody>
         </table>
@@ -93,6 +100,6 @@ $pageTitle = $serie['name'];
     </div><!--  fin row -->
 </main>
 <?php
-// var_dump($credits['crew']);
+var_dump($serie['pays']);
 
 // var_dump($serie['production'][0]['name']);
