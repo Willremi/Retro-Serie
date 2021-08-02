@@ -15,8 +15,8 @@ $pageTitle = $serie['name'];
             <li>Pays de production : <?= !$serie['pays'] ? "Pas d'infos disponibles" : $serie['pays'][0]['name'] ?></li>
             <?= $serie['creator'] ? "<li>Création : {$serie['creator'][0]['name']}</li>" : "" ?>
             <li>Diffuseur : <?= $serie['diffuseur'] ?></li>
-            <li>Nombre de saison : <?= $serie['nbSaison'] ?></li>
-            <li>Nombre de saison : <?= $serie['nbEpisode'] ?></li>
+            <li>Nombre de saisons : <?= $serie['nbSaison'] ?></li>
+            <li>Nombre d'épisodes : <?= $serie['nbEpisode'] ?></li>
             <li>Date du premier épisode : <?= $serie['dateFirstDiff'] ?></li>
             <li>Date du dernier épisode : <?= $serie['dateLastDiff'] ?></li>
             <li>Statut : <?= $serie['statut'] === 'Ended' ? 'Terminé' : 'En cours' ?></li>
@@ -50,7 +50,7 @@ $pageTitle = $serie['name'];
                     <tr class="saisons">
                         
                         <?php 
-                        if($saison['name'] !== 'Épisodes spéciaux'): ?>
+                        if($saison['name'] !== 'Épisodes spéciaux' && $saison['name'] !== 'Specials'): ?>
                             <td><?= $saison['name'] ?></td>
                             <td><?= $saison['episode_count'] ?></td>
                             <td><?= date('d/m/Y', strtotime($saison['air_date'])) ?></td>
