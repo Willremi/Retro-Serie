@@ -1,6 +1,8 @@
 <?php
 // var_dump($serie);
 $pageTitle = $serie['name'];
+
+$notInfo = "Pas d'infos disponibles";
 ?>
 <h1><?= $serie['name'] ?></h1>
 <?php if ($serie['name'] !== $serie['nameOrigin']) : ?>
@@ -12,9 +14,9 @@ $pageTitle = $serie['name'];
     <div class="col-md-6 order-sm-1 order-md-0">
         <ul>
             <li>Genre : <?= $serie['genre'] ?></li>
-            <li>Pays de production : <?= !$serie['pays'] ? "Pas d'infos disponibles" : $serie['pays'][0]['name'] ?></li>
+            <li>Pays de production : <?= !$serie['pays'] ? $notInfo : $serie['pays'][0]['name'] ?></li>
             <?= $serie['creator'] ? "<li>Création : {$serie['creator'][0]['name']}</li>" : "" ?>
-            <li>Diffuseur : <?= $serie['diffuseur'] ?></li>
+            <li>Diffuseur : <?= !$serie['diffuseur'] ? $notInfo : $serie['diffuseur'] ?></li>
             <li>Nombre de saisons : <?= $serie['nbSaison'] ?></li>
             <li>Nombre d'épisodes : <?= $serie['nbEpisode'] ?></li>
             <li>Date du premier épisode : <?= $serie['dateFirstDiff'] ?></li>
