@@ -14,4 +14,13 @@ class SerieController extends Controller
 
         $this->render('series/detail', ['serie' => $serie, 'credits' => $credits], 'series');
     }
+
+    public function saison(string $id, string $saisonNum)
+    {
+        $api = new OpenApi('c595147bf4af143ab2df16843f9487bf');
+
+        $saison = $api->getSaison($id, $saisonNum);
+
+        // $this->render('series/saison', ['saison' => $saison], 'serie');
+    }
 }

@@ -66,7 +66,13 @@ class OpenApi
         return $results;
     }
 
-    public function getCredits(string $id)
+    /**
+     * Fonction pour appeler les crédits d'une série
+     *
+     * @param string $id
+     * @return array|null
+     */
+    public function getCredits(string $id): ?array
     {
         $data = $this->callApi('tv/'.$id.'/credits');
         $results = [
@@ -79,6 +85,21 @@ class OpenApi
         return $results;
     }
 
+    public function getSaison(string $id, string $saisonNum)
+    {
+        $data = $this->callApi('tv/'.$id.'/season/'.$saisonNum);
+
+        $results = [];
+
+        return $results;
+    }
+
+    /**
+     * Fonction pour appeler l'API
+     *
+     * @param string $endpoint
+     * @return array|null
+     */
     private function callApi(string $endpoint): ?array
     {
         $curl = curl_init('https://api.themoviedb.org/3/'.$endpoint.'?api_key='.$this->apiKey.'&language=fr-FR');
