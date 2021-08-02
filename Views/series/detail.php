@@ -46,18 +46,18 @@ $pageTitle = $serie['name'];
             </thead>
             <tbody>
                 <?php foreach ($serie['saisons'] as $saison) : ?>
-                    
+
                     <tr class="saisons">
-                        
-                        <?php 
-                        if($saison['name'] !== 'Épisodes spéciaux' && $saison['name'] !== 'Specials'): ?>
+
+                        <?php
+                        if ($saison['name'] !== 'Épisodes spéciaux' && $saison['name'] !== 'Specials') : ?>
                             <td><?= $saison['name'] ?></td>
                             <td><?= $saison['episode_count'] ?></td>
                             <td><?= date('d/m/Y', strtotime($saison['air_date'])) ?></td>
 
                         <?php endif ?>
                     </tr>
-                    
+
                 <?php endforeach ?>
             </tbody>
         </table>
@@ -67,8 +67,10 @@ $pageTitle = $serie['name'];
     <div id="ligne"></div>
 
     <div class="row">
-        <div class="col-md-6">
-            <h2>Distribution</h2>
+        <!-- <div class="col-md-6"> -->
+        <div class="<?= $credits['crew'] === [] ? 'offset-md-1 col-md-10' : 'col-md-6' ?>">
+            <!-- <h2>Distribution</h2> -->
+            <?= $credits['cast'] === [] ? '' : '<h2>Distribution</h2>' ?>
             <table class="table-respo table table-success table-striped table-bordered">
                 <thead>
                     <tr>
@@ -77,19 +79,21 @@ $pageTitle = $serie['name'];
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($credits['cast'] as $cast) : ?>
-                    <tr>
-                        <td><?= $cast['name'] ?></td>
-                        <td><?= $cast['character'] ?></td>
-                    </tr>
-                <?php endforeach ?>
+                    <?php foreach ($credits['cast'] as $cast) : ?>
+                        <tr>
+                            <td><?= $cast['name'] ?></td>
+                            <td><?= $cast['character'] ?></td>
+                        </tr>
+                    <?php endforeach ?>
                 </tbody>
             </table>
         </div>
-        <div class="col-md-6">
-            <h2>Production</h2>
+        <!-- <div class="col-md-6"> -->
+        <div class="<?= $credits['cast'] === [] ? 'offset-md-1 col-md-10' : 'col-md-6' ?>">
+            <!-- <h2>Production</h2> -->
+            <?= $credits['crew'] === [] ? '' : '<h2>Production</h2>' ?>
             <table class="table-respo table table-success table-striped table-bordered">
-            <?php foreach ($credits['crew'] as $crew) : ?>
+                <?php foreach ($credits['crew'] as $crew) : ?>
                     <tr>
                         <td><?= $crew['name'] ?></td>
                         <td><?= $crew['job'] ?></td>
@@ -98,8 +102,9 @@ $pageTitle = $serie['name'];
             </table>
         </div>
     </div><!--  fin row -->
+
 </main>
 <?php
-var_dump($serie['pays']);
-
+// var_dump($serie['pays']);
+// var_dump($credits);
 // var_dump($serie['production'][0]['name']);
