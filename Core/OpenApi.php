@@ -89,7 +89,14 @@ class OpenApi
     {
         $data = $this->callApi('tv/'.$id.'/season/'.$saisonNum);
 
-        $results = [];
+        foreach($data['episodes'] as $episode)
+        {
+            $results[] = [
+                'episode' => $episode['episode_number'], 
+                'titre' => $episode['name'], 
+                'resume' => $episode['overview'], 
+            ];
+        }
 
         return $results;
     }
