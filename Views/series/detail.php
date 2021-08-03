@@ -36,38 +36,6 @@ $notInfo = "Pas d'infos disponibles";
 
     <div id="ligne"></div>
 
-    <h2><?= $serie['nbSaison'] <= 1 ? 'Saison' : 'Liste des saisons' ?></h2>
-    <div class="row">
-        <table class="table-respo table-bordered border-success">
-            <thead>
-                <tr>
-                    <th scope="col"><?= $serie['nbSaison'] <= 1 ? 'Saison' : 'Saisons' ?></th>
-                    <th scope="col">Nombres d'épisodes</th>
-                    <th scope="col">Date de diffusion</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($serie['saisons'] as $saison) : ?>
-
-                    <tr class="saisons">
-
-                        <?php
-                        if ($saison['name'] !== 'Épisodes spéciaux' && $saison['name'] !== 'Specials') : ?>
-                            <td><?= $saison['name'] ?></td>
-                            <td><?= $saison['episode_count'] ?></td>
-                            <td><?= date('d/m/Y', strtotime($saison['air_date'])) ?></td>
-
-                        <?php endif ?>
-                    </tr>
-
-                <?php endforeach ?>
-            </tbody>
-        </table>
-    </div><!--  fin row -->
-
-    <br>
-    <div id="ligne"></div>
-
     <div class="row">
         <!-- <div class="col-md-6"> -->
         <div class="<?= $credits['crew'] === [] ? 'offset-md-1 col-md-10' : 'col-md-6' ?>">
@@ -104,6 +72,39 @@ $notInfo = "Pas d'infos disponibles";
             </table>
         </div>
     </div><!--  fin row -->
+
+    <div id="ligne"></div>
+
+    <h2><?= $serie['nbSaison'] <= 1 ? 'Saison' : 'Liste des saisons' ?></h2>
+    <div class="row">
+        <table class="table-respo table-bordered border-success">
+            <thead>
+                <tr>
+                    <th scope="col"><?= $serie['nbSaison'] <= 1 ? 'Saison' : 'Saisons' ?></th>
+                    <th scope="col">Nombres d'épisodes</th>
+                    <th scope="col">Date de diffusion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($serie['saisons'] as $saison) : ?>
+
+                    <tr class="saisons">
+
+                        <?php
+                        if ($saison['name'] !== 'Épisodes spéciaux' && $saison['name'] !== 'Specials') : ?>
+                            <td><?= $saison['name'] ?></td>
+                            <td><?= $saison['episode_count'] ?></td>
+                            <td><?= date('d/m/Y', strtotime($saison['air_date'])) ?></td>
+
+                        <?php endif ?>
+                    </tr>
+
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </div><!--  fin row -->
+
+   <div id="ligne"></div>
 
 </main>
 <?php
