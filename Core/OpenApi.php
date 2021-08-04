@@ -99,9 +99,10 @@ class OpenApi
         // }
         $results = [
             'name' => $data['name'], 
+            'dateDiff' => date('d/m/Y', strtotime($data['air_date'])), 
             'cover' => $data['poster_path'], 
             'resume' => $data['overview'], 
-            'episode' => $data['episodes'], 
+            'episodes' => $data['episodes'], 
         ];
 
         return $results;

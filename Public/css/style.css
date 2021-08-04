@@ -49,7 +49,7 @@ ul {
   @media screen and (min-width: 1200px) {
     .dropdown-toggle::after{
       display: none;
-  }
+    }
     .imgAccueil {
       width: 50%;
     }
