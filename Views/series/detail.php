@@ -92,7 +92,7 @@ $notInfo = "Pas d'infos disponibles";
 
                         <?php
                         if ($saison['name'] !== 'Épisodes spéciaux' && $saison['name'] !== 'Specials') : ?>
-                            <td><?= $saison['name'] ?></td>
+                            <td><a href="/serie/saison/<?= $saison['season_number'] ?>/<?= $serie['id'] ?>" target="_blank"><?= $saison['name'] ?></a></td>
                             <td><?= $saison['episode_count'] ?></td>
                             <td><?= date('d/m/Y', strtotime($saison['air_date'])) ?></td>
 
