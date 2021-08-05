@@ -22,12 +22,17 @@
     text-align: start;
   }
 
-  .resumeNull {
+  .resumeNull, #introSaison {
     text-align: center !important;
   }
 
   #ligne {
     border-bottom: 1px solid black;
+  }
+
+  /* lien cliquable */
+  a {
+    text-decoration: none;
   }
 
 /* Boutons de la liste séries par décennies */

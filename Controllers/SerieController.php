@@ -25,11 +25,12 @@ class SerieController extends Controller
         $api = new OpenApi('c595147bf4af143ab2df16843f9487bf');
         
         $serie = $api->getSerie($id);
+        $credits = $api->getCredits($id);
         $saison = $api->getSaison($id, $saisonNum);
         
         // $pageTitle = $serie['name'];
         // var_dump($pageTitle);
-        $this->render('series/saison', ['saison' => $saison, 'serie' => $serie], 'series');
+        $this->render('series/saison', ['saison' => $saison, 'serie' => $serie, 'credits' => $credits], 'series');
 
         // var_dump($saison);
 

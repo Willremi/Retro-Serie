@@ -17,14 +17,23 @@ $notInfo = "Pas d'infos disponibles";
     </div>
 </div> <!-- fin row -->
 <main>
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <div id="ligne"></div>
+        </div>
+    </div>
+    <br>
+    <!-- Intro -->
+    <p id="introSaison">La page présente le guide des épisodes de la <strong>saison <?= $saison['numSaison'] ?></strong> de la série télévisée <a href="/serie/detail/<?= $serie['id'] ?>"><strong><?= $serie['name'] ?></strong></a>.</p>
+
     <img src="<?= !$saison['cover'] ? '/img/LogoTV300.png' : 'https://image.tmdb.org/t/p/w300/' . $saison['cover'] ?>" alt="photo de couverture" class="rounded">
 
     <br><br>
 
     <!-- Pagination -->
     <?php
-    if(isset($saison['numSaison']) && !empty($saison['numSaison'])) {
-        $currentPage = $saison['numSaison']; 
+    if (isset($saison['numSaison']) && !empty($saison['numSaison'])) {
+        $currentPage = $saison['numSaison'];
     } else {
         $currentPage = 1;
     }
@@ -39,15 +48,29 @@ $notInfo = "Pas d'infos disponibles";
             <li class="page-item <?= ($currentPage == 1) ? 'disabled' : '' ?>">
                 <a class="page-link" href="/serie/saison/<?= $currentPage - 1 ?>/<?= $serie['id'] ?>"><i class="fas fa-backward"></i></a>
             </li>
-            <li class="page-item"><p class="page-link"><?= $saison['name'] ?></p></li>
+            <li class="page-item">
+                <p class="page-link"><?= $saison['name'] ?></p>
+            </li>
             <li class="page-item <?= ($currentPage === $serie['nbSaison']) ? 'disabled' : '' ?>">
-                <a class="page-link" href="/serie/saison/<?= $serie['nbSaison'] ?>/<?= $currentPage + 1 ?>"><i class="fas fa-forward"></i></a>
+                <a class="page-link" href="/serie/saison/<?= $currentPage + 1 ?>/<?= $serie['id'] ?>"><i class="fas fa-forward"></i></a>
             </li>
             <li class="page-item <?= ($currentPage === $serie['nbSaison']) ? 'disabled' : '' ?>">
                 <a class="page-link" href="/serie/saison/<?= $serie['nbSaison'] ?>/<?= $serie['id'] ?>"><i class="fas fa-step-forward"></i></a>
             </li>
         </ul>
     </nav>
+
+    <div class="row">
+        <h2>Acteurs principaux</h2>
+        <?= ($credits['cast'] === []) ? "<p class='resumeNull'>".$notInfo." sur les acteurs principaux</p>" : "<p></p>" ?>
+        
+        <?php foreach($credits['cast'] as $cast): ?>
+            <div class="col-md-4">
+                <img src="https://image.tmdb.org/t/p/w154/<?= $cast['profile_path'] ?>" alt="">
+                <p><?= $cast['name'] ?></p>
+            </div>
+        <?php endforeach ?>
+    </div> <!-- fin row -->
 
     <!-- Liste des épisodes -->
     <h2><?= count($saison['episodes']) === 1 ? "Episode" : "Liste des épisodes"  ?></h2>
@@ -74,7 +97,7 @@ $notInfo = "Pas d'infos disponibles";
             </tbody>
         </table>
     </div><!-- Fin row -->
-    
+
     <br>
     <!-- Navigation de pagination -->
     <nav aria-label="Page navigation example">
@@ -85,7 +108,9 @@ $notInfo = "Pas d'infos disponibles";
             <li class="page-item <?= ($currentPage == 1) ? 'disabled' : '' ?>">
                 <a class="page-link" href="/serie/saison/<?= $currentPage - 1 ?>/<?= $serie['id'] ?>"><i class="fas fa-backward"></i></a>
             </li>
-            <li class="page-item"><p class="page-link"><?= $saison['name'] ?></p></li>
+            <li class="page-item">
+                <p class="page-link"><?= $saison['name'] ?></p>
+            </li>
             <li class="page-item <?= ($currentPage === $serie['nbSaison']) ? 'disabled' : '' ?>">
                 <a class="page-link" href="/serie/saison/<?= $serie['nbSaison'] ?>/<?= $currentPage + 1 ?>"><i class="fas fa-forward"></i></a>
             </li>
