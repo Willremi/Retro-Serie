@@ -102,6 +102,7 @@ class OpenApi
             'dateDiff' => date('d/m/Y', strtotime($data['air_date'])), 
             'cover' => $data['poster_path'], 
             'resume' => $data['overview'], 
+            'numSaison' => $data['season_number'], 
             'episodes' => $data['episodes'], 
         ];
 

@@ -80,9 +80,9 @@ $notInfo = "Pas d'infos disponibles";
         <table class="table-respo table-bordered border-success">
             <thead>
                 <tr>
-                    <th scope="col"><?= $serie['nbSaison'] <= 1 ? 'Saison' : 'Saisons' ?></th>
-                    <th scope="col">Nombres d'épisodes</th>
-                    <th scope="col">Date de diffusion</th>
+                    <th scope="col"><?= $serie['nbSaison'] === 1 ? 'Saison' : 'Saisons' ?></th>
+                    <th scope="col">Nombre d'épisodes</th>
+                    <th scope="col">Dates de diffusion</th>
                 </tr>
             </thead>
             <tbody>

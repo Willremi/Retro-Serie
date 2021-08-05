@@ -31,7 +31,7 @@ class SerieController extends Controller
         // var_dump($pageTitle);
         $this->render('series/saison', ['saison' => $saison, 'serie' => $serie], 'series');
 
-        var_dump($saison);
+        // var_dump($saison);
 
     }
 }
