@@ -85,18 +85,17 @@ class OpenApi
         return $results;
     }
 
-    public function getSaison(string $id, string $saisonNum)
+    /**
+     * Fonction pour appeler une saison d'une série
+     *
+     * @param string $id
+     * @param string $saisonNum
+     * @return array|null
+     */
+    public function getSaison(string $id, string $saisonNum): ?array
     {
         $data = $this->callApi('tv/'.$id.'/season/'.$saisonNum);
 
-        // foreach($data['episodes'] as $episode)
-        // {
-        //     $results[] = [
-        //         'episode' => $episode['episode_number'], 
-        //         'titre' => $episode['name'], 
-        //         'resume' => $episode['overview']
-        //     ];
-        // }
         $results = [
             'name' => $data['name'], 
             'dateDiff' => date('d/m/Y', strtotime($data['air_date'])), 
@@ -104,6 +103,30 @@ class OpenApi
             'resume' => $data['overview'], 
             'numSaison' => $data['season_number'], 
             'episodes' => $data['episodes'], 
+        ];
+
+        return $results;
+    }
+
+    /**
+     * Fonction pour appeler la biographie d'un acteur ou réalisateur
+     *
+     * @param integer $id
+     * @return array|null
+     */
+    public function getPerson(int $id): ?array
+    {
+        $data = $this->callApi('person/'.$id);
+
+        $results = [
+            'id' => $data['id'], 
+            'name' => $data['name'], 
+            'photo' => $data['profile_path'], 
+            'placeBirth' => $data['place_of_birth'], 
+            'dateBirth' => date('d/m/Y', strtotime($data['birthday'])), 
+            'dateDeath' => date('d/m/Y', strtotime($data['deathday'])), 
+            'job' => $data['known_for_department'], 
+
         ];
 
         return $results;
