@@ -35,6 +35,10 @@
     text-decoration: none;
   }
 
+  a:hover {
+    color:rgb(45, 139, 92);
+  }
+
 /* Boutons de la liste séries par décennies */
   #btn70, #btn2000, .liste td, .liste td>a {
     color: white;
@@ -49,6 +53,11 @@
 /* Liste de saisons */
 ul {
   list-style-type: none;
+}
+
+/* image de célébrité */
+.celebs {
+  height: 154px;
 }
 
   @media screen and (min-width: 1200px) {

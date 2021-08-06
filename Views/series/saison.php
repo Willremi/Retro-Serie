@@ -60,14 +60,19 @@ $notInfo = "Pas d'infos disponibles";
         </ul>
     </nav>
 
+    <h2>Acteurs principaux</h2>
+    <?= ($credits['cast'] === []) ? "<p class='resumeNull'>" . $notInfo . " sur les acteurs principaux</p>" : "<p></p>" ?>
+    <br>
+
     <div class="row">
-        <h2>Acteurs principaux</h2>
-        <?= ($credits['cast'] === []) ? "<p class='resumeNull'>".$notInfo." sur les acteurs principaux</p>" : "<p></p>" ?>
-        
-        <?php foreach($credits['cast'] as $cast): ?>
-            <div class="col-md-4">
-                <img src="https://image.tmdb.org/t/p/w154/<?= $cast['profile_path'] ?>" alt="">
-                <p><?= $cast['name'] ?></p>
+
+        <?php foreach ($credits['cast'] as $cast) : ?>
+            <div class="col-md-4 col-sm-4 mb-2">
+                <a href="" target="_blank">
+                <img src="<?= !$cast['profile_path'] ? '/img/avatar.png' : 'https://image.tmdb.org/t/p/w154/' . $cast['profile_path'] ?>" alt="Photo de <?= $cast['name'] ?>" class="celebs rounded">
+
+                <h5><?= $cast['name'] ?></h5>
+                </a>
             </div>
         <?php endforeach ?>
     </div> <!-- fin row -->
