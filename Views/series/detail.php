@@ -40,36 +40,50 @@ $notInfo = "Pas d'infos disponibles";
         <!-- <div class="col-md-6"> -->
         <div class="<?= $credits['crew'] === [] ? 'offset-md-1 col-md-10' : 'col-md-6' ?>">
             <!-- <h2>Distribution</h2> -->
-            <?= $credits['cast'] === [] ? '' : '<h2>Distribution</h2>' ?>
-            <table class="table-respo table table-success table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">Acteurs</th>
-                        <th scope="col">Rôles</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($credits['cast'] as $cast) : ?>
+            <?php if($credits['cast']): ?>
+                <h2>Distribution</h2>
+
+                <table class="table-respo table table-success table-striped table-bordered">
+                    <thead>
                         <tr>
-                            <td><a href="/person/bio/<?= $cast['id'] ?>" target="_blank"><?= $cast['name'] ?></a></td>
-                            <td><?= $cast['character'] ?></td>
+                            <th scope="col">Acteurs</th>
+                            <th scope="col">Rôles</th>
                         </tr>
-                    <?php endforeach ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($credits['cast'] as $cast) : ?>
+                            <tr>
+                                <td><a href="/person/bio/<?= $cast['id'] ?>" target="_blank"><?= $cast['name'] ?></a></td>
+                                <td><?= $cast['character'] ?></td>
+                            </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table>
+            <?php endif?>
         </div>
         <!-- <div class="col-md-6"> -->
         <div class="<?= $credits['cast'] === [] ? 'offset-md-1 col-md-10' : 'col-md-6' ?>">
             <!-- <h2>Production</h2> -->
-            <?= $credits['crew'] === [] ? '' : '<h2>Production</h2>' ?>
-            <table class="table-respo table table-success table-striped table-bordered">
-                <?php foreach ($credits['crew'] as $crew) : ?>
+            <?php if($credits['crew']): ?>
+                <h2>Production</h2>
+                <table class="table-respo table table-success table-striped table-bordered">
+                <thead>
                     <tr>
-                        <td><a href="/person/bio/<?= $crew['id'] ?>" target="_blank"><?= $crew['name'] ?></a></td>
-                        <td><?= $crew['job'] ?></td>
+                        <th scope="col">Noms</th>
+                        <th scope="col">Métiers</th>
                     </tr>
-                <?php endforeach ?>
+                </thead>
+                <tbody>
+                    <?php foreach ($credits['crew'] as $crew) : ?>
+                        <tr>
+                            <td><a href="/person/bio/<?= $crew['id'] ?>" target="_blank"><?= $crew['name'] ?></a></td>
+                            <td><?= $crew['job'] ?></td>
+                        </tr>
+                    <?php endforeach ?>
+                </tbody>
             </table>
+            <?php endif ?>
+            
         </div>
     </div><!--  fin row -->
 
@@ -104,7 +118,7 @@ $notInfo = "Pas d'infos disponibles";
         </table>
     </div><!--  fin row -->
 
-   <div id="ligne"></div>
+    <div id="ligne"></div>
 
 </main>
 <?php
