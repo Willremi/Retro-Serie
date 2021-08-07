@@ -51,7 +51,7 @@ $notInfo = "Pas d'infos disponibles";
                 <tbody>
                     <?php foreach ($credits['cast'] as $cast) : ?>
                         <tr>
-                            <td><a href="" target="_blank"><?= $cast['name'] ?></a></td>
+                            <td><a href="/person/bio/<?= $cast['id'] ?>" target="_blank"><?= $cast['name'] ?></a></td>
                             <td><?= $cast['character'] ?></td>
                         </tr>
                     <?php endforeach ?>
@@ -65,7 +65,7 @@ $notInfo = "Pas d'infos disponibles";
             <table class="table-respo table table-success table-striped table-bordered">
                 <?php foreach ($credits['crew'] as $crew) : ?>
                     <tr>
-                        <td><a href="" target="_blank"><?= $crew['name'] ?></a></td>
+                        <td><a href="/person/bio/<?= $crew['id'] ?>" target="_blank"><?= $crew['name'] ?></a></td>
                         <td><?= $crew['job'] ?></td>
                     </tr>
                 <?php endforeach ?>

@@ -126,7 +126,7 @@ class OpenApi
             'dateBirth' => date('d/m/Y', strtotime($data['birthday'])), 
             'dateDeath' => date('d/m/Y', strtotime($data['deathday'])), 
             'job' => $data['known_for_department'], 
-
+            'bio' => $data['biography']
         ];
 
         return $results;

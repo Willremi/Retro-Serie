@@ -68,7 +68,7 @@ $notInfo = "Pas d'infos disponibles";
 
         <?php foreach ($credits['cast'] as $cast) : ?>
             <div class="col-md-4 col-sm-4 mb-2">
-                <a href="" target="_blank">
+                <a href="/person/bio/<?= $cast['id'] ?>" target="_blank">
                 <img src="<?= !$cast['profile_path'] ? '/img/avatar.png' : 'https://image.tmdb.org/t/p/w154/' . $cast['profile_path'] ?>" alt="Photo de <?= $cast['name'] ?>" class="celebs rounded">
 
                 <h5><?= $cast['name'] ?></h5>
