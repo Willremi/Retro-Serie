@@ -126,7 +126,28 @@ class OpenApi
             'dateBirth' => date('d/m/Y', strtotime($data['birthday'])), 
             'dateDeath' => date('d/m/Y', strtotime($data['deathday'])), 
             'job' => $data['known_for_department'], 
-            'bio' => $data['biography']
+            'bio' => $data['biography'], 
+            'sexe' => $data['gender']
+        ];
+
+        return $results;
+    }
+
+    /**
+     * Fonction pour appeler la participation d'une personne sur des série
+     *
+     * @param integer $id
+     * @return array|null
+     */
+    public function getPersonCredits(int $id): ?array
+    {
+        $data = $this->callApi('person/'.$id.'/tv_credits');
+
+        $results = [
+            // Acteurs
+            'cast' => $data['cast'], 
+            // Production/Réalisation
+            'crew' => $data['crew'] 
         ];
 
         return $results;

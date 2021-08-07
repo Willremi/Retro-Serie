@@ -16,7 +16,8 @@ class PersonController extends Controller
         $api = new OpenApi('c595147bf4af143ab2df16843f9487bf');
 
         $bio = $api->getPerson($id);
-        $this->render('person/bio', ['bio' => $bio], 'series');
-        var_dump($bio);
+        $credits = $api->getPersonCredits($id);
+        $this->render('person/bio', ['bio' => $bio, 'credits' => $credits], 'series');
+        // var_dump($credits);
     }
 }
