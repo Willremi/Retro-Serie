@@ -35,7 +35,7 @@
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="#">Séries</a></li>
+                <li><a class="dropdown-item" href="/search/tv">Séries</a></li>
               </ul>
             </li>
             <li class="nav-item">

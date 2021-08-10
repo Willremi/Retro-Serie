@@ -27,7 +27,7 @@
               <a class="nav-link" href="/listSerie">Liste</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Séries</a>
+              <a class="nav-link" href="/search/tv">Séries</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Acteurs</a>

@@ -19,7 +19,7 @@ class OpenApi
      */
     public function getList(string $listDec): ?array
     {
-        $data = $this->callApi('list/'.$listDec);
+        $data = $this->callApi('list/'.$listDec, 'null');
         
         $dataList = $data['items'];
         
@@ -43,7 +43,7 @@ class OpenApi
      */
     public function getSerie(string $id): ?array
     {
-        $data = $this->callApi('tv/'.$id);
+        $data = $this->callApi('tv/'.$id, 'null');
         $results = [
             'id' => $data['id'], 
             'name' => $data['name'], 
@@ -74,7 +74,7 @@ class OpenApi
      */
     public function getCredits(string $id): ?array
     {
-        $data = $this->callApi('tv/'.$id.'/credits');
+        $data = $this->callApi('tv/'.$id.'/credits', 'null');
         $results = [
             // Acteurs
             'cast' => $data['cast'], 
@@ -94,7 +94,7 @@ class OpenApi
      */
     public function getSaison(string $id, string $saisonNum): ?array
     {
-        $data = $this->callApi('tv/'.$id.'/season/'.$saisonNum);
+        $data = $this->callApi('tv/'.$id.'/season/'.$saisonNum, 'null');
 
         $results = [
             'name' => $data['name'], 
@@ -116,7 +116,7 @@ class OpenApi
      */
     public function getPerson(int $id): ?array
     {
-        $data = $this->callApi('person/'.$id);
+        $data = $this->callApi('person/'.$id, 'null');
 
         $results = [
             'id' => $data['id'], 
@@ -141,7 +141,7 @@ class OpenApi
      */
     public function getPersonCredits(int $id): ?array
     {
-        $data = $this->callApi('person/'.$id.'/tv_credits');
+        $data = $this->callApi('person/'.$id.'/tv_credits', 'null');
 
         $results = [
             // Acteurs
@@ -154,14 +154,38 @@ class OpenApi
     }
 
     /**
+     * Fonction pour appeler la recherche de séries
+     *
+     * @param string $query
+     * @return array|null
+     */
+    public function getSearchTv(string $query): ?array
+    {
+        $data = $this->callApi("search/tv", "&query=".$query);
+        // var_dump($data['results']);
+        foreach($data['results'] as $series) {
+            $results[] = [
+                'idSerie' => $series['id'], 
+                'name' => $series['name'], 
+                'nameOrigin' => $series['original_name'], 
+                'paysOrigin' => $series['origin_country'], 
+                'poster' => $series['poster_path']
+
+            ];
+        }
+        return $results;
+    }
+
+    /**
      * Fonction pour appeler l'API
      *
+     * @param string $startpoint
      * @param string $endpoint
      * @return array|null
      */
-    private function callApi(string $endpoint): ?array
+    private function callApi(string $startpoint, string $endpoint): ?array
     {
-        $curl = curl_init('https://api.themoviedb.org/3/'.$endpoint.'?api_key='.$this->apiKey.'&language=fr-FR');
+        $curl = curl_init('https://api.themoviedb.org/3/'.$startpoint.'?api_key='.$this->apiKey.'&language=fr-FR'.$endpoint);
         curl_setopt_array($curl, [
             CURLOPT_RETURNTRANSFER => true, 
             CURLOPT_CAINFO => ROOT . DIRECTORY_SEPARATOR . 'cert.cer',
