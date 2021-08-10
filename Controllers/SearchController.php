@@ -7,7 +7,7 @@ class SearchController extends Controller
 {
     public function tv() {
         $api = new OpenApi('c595147bf4af143ab2df16843f9487bf');
-
+        // Créer un formulaire pour recherche puis filtrer les résultats avec name et nameOrigin
         $search = $api->getSearchTv('batman');
 
         $this->render('search/tv', ['search' => $search], 'series');
