@@ -168,7 +168,7 @@ class OpenApi
                 'idSerie' => $series['id'], 
                 'name' => $series['name'], 
                 'nameOrigin' => $series['original_name'], 
-                'dateDiff' => $series['first_air_date'], 
+                // 'dateDiff' => $series['first_air_date'], 
                 'paysOrigin' => $series['origin_country'], 
                 'poster' => $series['poster_path'], 
 
