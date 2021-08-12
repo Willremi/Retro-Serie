@@ -170,9 +170,11 @@ class OpenApi
                 'nameOrigin' => $series['original_name'], 
                 // 'dateDiff' => $series['first_air_date'], 
                 'paysOrigin' => $series['origin_country'], 
-                'poster' => $series['poster_path'], 
+                'poster' => $series['backdrop_path'], 
 
             ];
+
+            // $results = [ 'series' => $data['results'] ]; 
         }
         return $results;
     }

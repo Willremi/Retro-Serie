@@ -8,15 +8,7 @@ class SearchController extends Controller
 {
     public function tv() {
         $api = new OpenApi('c595147bf4af143ab2df16843f9487bf');
-
-        // if(Form::validate($_POST, ['searchTv'])) {
-        //     $nomSerie = htmlspecialchars(trim($_POST['searchTv']));
-
-        //     $nomSerie = explode(' ', $nomSerie);
-        //     $searchTv = implode('-', $nomSerie);
-
-        //     $search = $api->getSearchTv($searchTv);
-        // }
+        
         // Créer un formulaire pour recherche puis filtrer les résultats avec name et nameOrigin
         // Condition date->null ou vide
         // $search = $api->getSearchTv('Superman');
