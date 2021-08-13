@@ -21,11 +21,13 @@ class SearchController extends Controller
         }
 
         $form = new Form;
-
         $form->debutForm($method="post", $action="", ['class' => 'row g-3'])
             ->debutDiv(['class' => 'offset-md-3 col-md-6'])
             ->ajoutLabelFor('searchTv', "Recherche")
-            ->ajoutInput('text', 'searchTv', ['class' => 'form-control', 'id' => 'searchTv'])
+            ->ajoutInput('text', 'searchTv', [
+                'class' => 'form-control', 
+                'id' => 'searchTv'
+                ])
             ->finDiv()
             ->debutDiv(['class' => 'offset-md-3 col-md-6'])
             ->ajoutBouton('Chercher', ['class' => 'btn btn-success'])
@@ -33,6 +35,6 @@ class SearchController extends Controller
             ->finForm();
 
         $this->render('search/tv', ['formSearch'=>$form->create(), 'search' => $search], 'series');
-        var_dump($search);
+        // var_dump($search);
     }
 }

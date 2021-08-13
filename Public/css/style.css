@@ -22,7 +22,7 @@
     text-align: start;
   }
 
-  .resumeNull, #introSaison, .introBio {
+  .resumeNull, #introSaison, .introBio, .card-text {
     text-align: center !important;
   }
 
