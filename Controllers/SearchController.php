@@ -33,8 +33,10 @@ class SearchController extends Controller
             ->ajoutBouton('Chercher', ['class' => 'btn btn-success'])
             ->finDiv()
             ->finForm();
+        
+        $popTv = $api->getPopularTv();
 
-        $this->render('search/tv', ['formSearch'=>$form->create(), 'search' => $search], 'series');
-        // var_dump($search);
+        $this->render('search/tv', ['formSearch'=>$form->create(), 'search' => $search, 'popTv' => $popTv], 'series');
+        // var_dump($popTv);
     }
 }

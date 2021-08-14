@@ -13,7 +13,8 @@ $notInfo = "Pas d'infos disponibles";
 <div class="row">
     <div class="col-md-6 order-sm-1 order-md-0">
         <ul>
-            <li>Genre : <?= $serie['genre'] ?></li>
+        
+            <li>Genre : <?= !$serie['genre'] ? $notInfo : $serie['genre'][0]['name'] ?></li>
             <li>Pays de production : <?= !$serie['pays'] ? $notInfo : $serie['pays'][0]['name'] ?></li>
             <?= $serie['creator'] ? "<li>Création : {$serie['creator'][0]['name']}</li>" : "" ?>
             <li>Diffuseur : <?= !$serie['diffuseur'] ? $notInfo : $serie['diffuseur'] ?></li>

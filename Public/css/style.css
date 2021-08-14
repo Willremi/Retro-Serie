@@ -60,11 +60,20 @@ ul {
   height: 154px;
 }
 
-  @media screen and (min-width: 1200px) {
-    .dropdown-toggle::after{
-      display: none;
-    }
-    .imgAccueil {
-      width: 50%;
-    }
+/* Footer */
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  background-color: rgb(45, 139, 92);
+  color: #fff;
+}
+
+@media screen and (min-width: 1200px) {
+  .dropdown-toggle::after{
+    display: none;
   }
+  .imgAccueil {
+    width: 50%;
+  }
+}

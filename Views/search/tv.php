@@ -18,7 +18,7 @@ $pageTitle = "Rechercher série(s)";
 
                     <div class="card text-white bg-success mb-3">
                         <div class="card-header"><?= $series['name'] ?></div>
-                        <img src="<?= !$series['poster'] ? '/img/LogoTV300.png' : 'https://image.tmdb.org/t/p/w300/' . $series['poster'] ?>" class="card-img-top" alt="...">
+                        <img src="<?= !$series['poster'] ? '/img/LogoTV300.png' : 'https://image.tmdb.org/t/p/w300/' . $series['poster'] ?>" class="card-img-top" alt="image de <?= $series['name'] ?>">
 
                         <div class="card-body">
                             <h5 class="card-title"><?= $series['nameOrigin'] ?></h5>
@@ -31,4 +31,29 @@ $pageTitle = "Rechercher série(s)";
             </div>
         <?php endforeach ?>
     </div> <!-- Fin row -->
+<?php else: ?>
+    <div id="ligne"></div>
+    <br>
+    <div class="row">
+        <h2>Le classement des 20 séries populaires entre 1950 et 2010</h2>
+        <p></p>
+        <?php foreach($popTv as $pop): ?>
+            <div class="col-sm-6 col-md-3">
+                <a href="/serie/detail/<?= $pop['idSerie'] ?>" target="_blank">
+                    <div class="card text-white bg-success mb-3">
+                        <div class="card-header"><?= $pop['nom'] ?></div>
+                        <img src="<?= !$pop['poster'] ? '/img/LogoTV300.png' : 'https://image.tmdb.org/t/p/w300/' . $pop['poster'] ?>" class="card-img-top" alt="image de <?= $pop['nom'] ?>">
+
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $pop['nomOrigin'] ?></h5>
+                            <p class="card-text">
+                                Pays d'origine : <?= !$pop['paysOrigin'] ? "Pas d'information sur le pays" : $pop['paysOrigin'][0] ?><br>
+                                Date de diffusion : <?= $pop['dateDiff'] ?>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        <?php endforeach ?>
+    </div><!-- fin row --> 
 <?php endif ?>

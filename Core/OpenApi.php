@@ -50,7 +50,7 @@ class OpenApi
             'nameOrigin' => $data['original_name'],
             'photo' => $data['backdrop_path'], 
             'creator' => $data['created_by'], 
-            'genre' => $data['genres'][0]['name'], 
+            'genre' => $data['genres'], 
             'nbSaison' => $data['number_of_seasons'], 
             'nbEpisode' => $data['number_of_episodes'], 
             'dateFirstDiff' => date('d/m/Y', strtotime($data['first_air_date'])), 
@@ -175,6 +175,23 @@ class OpenApi
             ];
 
             // $results = [ 'series' => $data['results'] ]; 
+        }
+        return $results;
+    }
+
+    public function getPopularTv(): ?array
+    {
+        $data = $this->callApi("discover/tv", "&sort_by=popularity.desc&first_air_date.gte=1950-01-01&first_air_date.lte=2009-12-31&page=1&timezone=France%2FParis&include_null_first_air_dates=false");
+
+        foreach($data['results'] as $series) {
+            $results[] = [
+                'nom' => $series['name'], 
+                'nomOrigin' => $series['original_name'], 
+                'idSerie' => $series['id'], 
+                'poster' => $series['backdrop_path'], 
+                'dateDiff' => date('d/m/Y', strtotime($series['first_air_date'])), 
+                'paysOrigin' => $series['origin_country']
+            ]; 
         }
         return $results;
     }
