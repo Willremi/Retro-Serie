@@ -33,7 +33,7 @@
               <a class="nav-link" href="/search/tv">Séries</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Acteurs</a>
+              <a class="nav-link" href="/search/person">Acteurs</a>
             </li>
           </ul>
           <ul class="navbar-nav ml-auto">

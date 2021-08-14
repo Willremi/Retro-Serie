@@ -179,6 +179,11 @@ class OpenApi
         return $results;
     }
 
+    /**
+     * Fonction pour appeler la liste des 20 séries populaire entre 1950 et 2009
+     *
+     * @return array|null
+     */
     public function getPopularTv(): ?array
     {
         $data = $this->callApi("discover/tv", "&sort_by=popularity.desc&first_air_date.gte=1950-01-01&first_air_date.lte=2009-12-31&page=1&timezone=France%2FParis&include_null_first_air_dates=false");
@@ -193,6 +198,49 @@ class OpenApi
                 'paysOrigin' => $series['origin_country']
             ]; 
         }
+        return $results;
+    }
+
+    /**
+     * Fonction pour appeler à la recherche de personnalités
+     *
+     * @param string $query
+     * @return array|null
+     */
+    public function getSearchPerson(string $query): ?array
+    {
+        $data = $this->callApi('search/person', '&query='.$query);
+
+        foreach($data['results'] as $person) {
+            $results[] = [
+                'nom' => $person['name'], 
+                'id' => $person['id'], 
+                'sexe' => $person['gender'], 
+                'job' => $person['known_for_department'], 
+                'profil' => $person['profile_path']
+            ];
+        }
+        return $results;
+    }
+
+    /**
+     * Fonction pour appeler la liste des peoples populaires
+     *
+     * @param integer $page
+     * @return array|null
+     */
+    public function getPopularPerson(int $page): ?array
+    {
+        $data = $this->callApi("person/popular", "&page=".$page);
+
+        $results = [
+            // Acteurs
+            'page' => $data['page'], 
+            // Production/Réalisation
+            'pagesTotales' => $data['total_pages'], 
+            'results' => $data['results'] 
+        ];
+
         return $results;
     }
 

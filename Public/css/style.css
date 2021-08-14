@@ -60,6 +60,10 @@ ul {
   height: 154px;
 }
 
+#popular {
+	height: 244px;
+}
+
 /* Footer */
 footer {
   display: flex;

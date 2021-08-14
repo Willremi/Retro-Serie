@@ -5,9 +5,9 @@ $pageTitle = "Rechercher série(s)";
 <h1>Recherche d'une ou des série(s)</h1>
 <?= $formSearch ?>
 <br>
+<div id="ligne"></div>
+<br>
 <?php if ($search) : ?>
-    <div id="ligne"></div>
-    <br>
     <div class="row">
 
         <!-- <br> -->
@@ -32,8 +32,7 @@ $pageTitle = "Rechercher série(s)";
         <?php endforeach ?>
     </div> <!-- Fin row -->
 <?php else: ?>
-    <div id="ligne"></div>
-    <br>
+    
     <div class="row">
         <h2>Le classement des 20 séries populaires entre 1950 et 2010</h2>
         <p></p>
