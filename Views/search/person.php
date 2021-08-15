@@ -1,4 +1,11 @@
-<?php $pageTitle = "Rechercher Acteurs"; ?>
+<?php $pageTitle = "Rechercher Acteurs";
+// Pagination
+if(isset($popCelebs['page']) && !empty($popCelebs['page'])){
+    $currentPage = $popCelebs['page'];
+} else {
+    $currentPage = 1;
+}
+?>
 <h1>Recherche d'un(e) ou des acteur(s) ou actrice(s)</h1>
 <?= $formSearch ?>
 <br>
@@ -46,6 +53,24 @@
         <?php endforeach ?>
 
         <!-- pagination -->
-        
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item <?= ($currentPage == 1) ? 'disabled' : '' ?>">
+                    <a href="/search/person" class="page-link"><i class="fas fa-step-backward"></i></a>
+                </li>
+                <li class="page-item <?= ($currentPage == 1) ? 'disabled' : '' ?>">
+                    <a href="/search/person/<?= $currentPage - 1 ?>" class="page-link"><i class="fas fa-backward"></i></a>
+                </li>
+                <li class="page-item">
+                    <p class="page-link"><?= $popCelebs['page'] ?></p>
+                </li>
+                <li class="page-item <?= ($currentPage === $popCelebs['pagesTotales']) ? 'disabled' : '' ?>">
+                    <a href="/search/person/<?= $currentPage + 1 ?>" class="page-link"><i class="fas fa-forward"></i></a>
+                </li>
+                <li class="page-item <?= ($currentPage === $popCelebs['pagesTotales']) ? 'disabled' : '' ?>">
+                    <a href="/search/person/<?= $popCelebs['pagesTotales'] ?>" class="page-link"><i class="fas fa-step-forward"></i></a>
+                </li>
+            </ul>
+        </nav>
     </div><!-- fin row -->
 <?php endif ?>
