@@ -81,6 +81,6 @@ class SearchController extends Controller
 
         $this->render('search/person', ['formSearch' => $form->create(), 'search' => $search, 'popCelebs' => $popCelebs], 'series');
         // var_dump($search);
-        var_dump($popCelebs);
+        // var_dump($popCelebs);
     }
 }
