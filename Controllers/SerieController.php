@@ -7,10 +7,13 @@ class SerieController extends Controller
 {
     public function detail(string $id)
     {
+        // Traitement avec l'API
         $api = new OpenApi('c595147bf4af143ab2df16843f9487bf');
 
         $serie = $api->getSerie($id);
         $credits = $api->getCredits($id);
+
+        // Traitement avec Commentaire
 
         $this->render('series/detail', ['serie' => $serie, 'credits' => $credits], 'series');
     }

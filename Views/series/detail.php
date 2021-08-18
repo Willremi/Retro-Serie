@@ -13,7 +13,7 @@ $notInfo = "Pas d'infos disponibles";
 <div class="row">
     <div class="col-md-6 order-sm-1 order-md-0">
         <ul>
-        
+
             <li>Genre : <?= !$serie['genre'] ? $notInfo : $serie['genre'][0]['name'] ?></li>
             <li>Pays de production : <?= !$serie['pays'] ? $notInfo : $serie['pays'][0]['name'] ?></li>
             <?= $serie['creator'] ? "<li>Création : {$serie['creator'][0]['name']}</li>" : "" ?>
@@ -41,7 +41,7 @@ $notInfo = "Pas d'infos disponibles";
         <!-- <div class="col-md-6"> -->
         <div class="<?= $credits['crew'] === [] ? 'offset-md-1 col-md-10' : 'col-md-6' ?>">
             <!-- <h2>Distribution</h2> -->
-            <?php if($credits['cast']): ?>
+            <?php if ($credits['cast']) : ?>
                 <h2>Distribution</h2>
 
                 <table class="table-respo table table-success table-striped table-bordered">
@@ -60,31 +60,31 @@ $notInfo = "Pas d'infos disponibles";
                         <?php endforeach ?>
                     </tbody>
                 </table>
-            <?php endif?>
+            <?php endif ?>
         </div>
         <!-- <div class="col-md-6"> -->
         <div class="<?= $credits['cast'] === [] ? 'offset-md-1 col-md-10' : 'col-md-6' ?>">
             <!-- <h2>Production</h2> -->
-            <?php if($credits['crew']): ?>
+            <?php if ($credits['crew']) : ?>
                 <h2>Production</h2>
                 <table class="table-respo table table-success table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">Noms</th>
-                        <th scope="col">Métiers</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($credits['crew'] as $crew) : ?>
+                    <thead>
                         <tr>
-                            <td><a href="/person/bio/<?= $crew['id'] ?>" target="_blank"><?= $crew['name'] ?></a></td>
-                            <td><?= $crew['job'] ?></td>
+                            <th scope="col">Noms</th>
+                            <th scope="col">Métiers</th>
                         </tr>
-                    <?php endforeach ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($credits['crew'] as $crew) : ?>
+                            <tr>
+                                <td><a href="/person/bio/<?= $crew['id'] ?>" target="_blank"><?= $crew['name'] ?></a></td>
+                                <td><?= $crew['job'] ?></td>
+                            </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table>
             <?php endif ?>
-            
+
         </div>
     </div><!--  fin row -->
 
@@ -118,11 +118,14 @@ $notInfo = "Pas d'infos disponibles";
             </tbody>
         </table>
     </div><!--  fin row -->
-
+    <br>
     <div id="ligne"></div>
-
+    <h2>XX Commentaire(s)</h2>
+    <?php if(isset($_SESSION['user']) && !empty($_SESSION['user']['id'])): ?>
+        <p>Là il y aura un formulaire pour commentaires</p>
+    <?php else: ?>
+        <a href="/users/login" class="btn btn-primary" target="_blank">Se Connecter</a> <a href="/users/register" class="btn btn-warning text-white" target="_blank">S'inscrire</a>
+    <?php endif ?>
+    <hr>
+    <p>Ici la liste de commentaire</p>
 </main>
-<?php
-// var_dump($serie['pays']);
-// var_dump($credits);
-// var_dump($serie['production'][0]['name']);
