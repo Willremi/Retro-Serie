@@ -122,7 +122,7 @@ $notInfo = "Pas d'infos disponibles";
     <div id="ligne"></div>
     <h2>XX Commentaire(s)</h2>
     <?php if(isset($_SESSION['user']) && !empty($_SESSION['user']['id'])): ?>
-        <p>Là il y aura un formulaire pour commentaires</p>
+        <?= $formComment ?>
     <?php else: ?>
         <a href="/users/login" class="btn btn-primary" target="_blank">Se Connecter</a> <a href="/users/register" class="btn btn-warning text-white" target="_blank">S'inscrire</a>
     <?php endif ?>

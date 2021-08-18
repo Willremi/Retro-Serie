@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 
+use App\Core\Form;
 use App\Core\OpenApi;
 
 class SerieController extends Controller
@@ -14,8 +15,20 @@ class SerieController extends Controller
         $credits = $api->getCredits($id);
 
         // Traitement avec Commentaire
+        $commentaire = '';
+        $form = new Form;
 
-        $this->render('series/detail', ['serie' => $serie, 'credits' => $credits], 'series');
+        $form->debutForm($methode = "post", $action = "", ['class' => 'row g-3'])
+            ->debutDiv(['class' => 'offset-md-3 col-md-6'])
+            ->ajoutLabelFor('commentaire', 'Rédiger un commentaire')
+            ->ajoutTextarea('commentaire', $commentaire, ['id' => 'commentaire', 'class' => 'form-control'])
+            ->finDiv()
+            ->debutDiv(['class' => 'offset-md-3 col-md-6'])
+            ->ajoutBouton('Envoyer', ['class' => 'btn btn-success'])
+            ->finDiv()
+            ->finForm();
+
+        $this->render('series/detail', ['serie' => $serie, 'credits' => $credits, 'formComment' => $form->create()], 'series');
     }
 
     // public function saison()
