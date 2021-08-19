@@ -129,3 +129,10 @@ $notInfo = "Pas d'infos disponibles";
     <hr>
     <p>Ici la liste de commentaire</p>
 </main>
+<?php
+// var_dump($commentaires);
+// var_dump(date_format($commentaires['created_at'], 'd/m/Y à H:i:s'));
+// foreach($commentaires as $comment) {
+//     $date = date_create($comment->created_at);
+//     echo date_format($date, 'd/m/Y à H:i:s').'<br>';
+// }
