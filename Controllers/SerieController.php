@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Core\Form;
 use App\Core\OpenApi;
 use App\Models\CommentairesModel;
+use App\Models\UsersModel;
 
 class SerieController extends Controller
 {
@@ -52,6 +53,13 @@ class SerieController extends Controller
         // Recherche de commentaires actives
         $commentaireModel = new CommentairesModel;
         $commentaires = $commentaireModel->findBy(['actif' => 1]);
+
+        // Recherche du pseudo à partir de l'id dans table commentaires(users_id)
+        // $userModel = new UsersModel;
+        // foreach($commentaires as $comt) {
+        //     $users_id = $comt->users_id; 
+        //     $user = $userModel->find($users_id);
+        // }
 
         $this->render('series/detail', ['serie' => $serie, 'credits' => $credits, 'formComment' => $form->create(), 'commentaires' => $commentaires], 'series');
         // var_dump($serie['id']);
