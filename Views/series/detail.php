@@ -123,28 +123,35 @@ $notInfo = "Pas d'infos disponibles";
     </div><!--  fin row -->
     <br>
     <div id="ligne"></div>
-    <h2>XX Commentaire(s)</h2>
-    <?php if(isset($_SESSION['user']) && !empty($_SESSION['user']['id'])): ?>
+    <h2>Commentaires</h2>
+    <?php if (isset($_SESSION['user']) && !empty($_SESSION['user']['id'])) : ?>
         <?= $formComment ?>
-    <?php else: ?>
+    <?php else : ?>
         <a href="/users/login" class="btn btn-primary" target="_blank">Se Connecter</a> <a href="/users/register" class="btn btn-warning text-white" target="_blank">S'inscrire</a>
     <?php endif ?>
     <hr>
-    <p>Ici la liste de commentaire</p>
+    <div class="col-sm-12 col-md-12" id="commentaires">
+        <div class="offset-md-3 col-md-6">
+            <h4>Nombre de commentaires : <?= count($commentaires) ?></h4>
+        </div>
+        <?php
+        rsort($commentaires);
+        foreach ($commentaires as $comment) {
+            $users = new UsersModel;
+            $date = date_create($comment->created_at);
+            $user = (object) $users->find($comment->users_id);
+        ?>
+            <div class="offset-md-3 col-md-6" id="listComment">
+                <div class="commentUser">
+                    <span><strong><?= $user->pseudo ?> | </strong><time><?= date_format($date, 'd/m/y à H:i') ?></time></span>
+                    <hr>
+                    <p><?= $comment->content ?></p>
+                </div>
+            </div>
+            <br>
+        <?php } ?>
+        <!-- endforeach -->
+
+    </div>
+
 </main>
-<?php
-// var_dump($commentaires);
-// var_dump(date_format($commentaires['created_at'], 'd/m/Y à H:i:s'));
-foreach($commentaires as $comment) {
-    $users = new UsersModel;
-    $date = date_create($comment->created_at);
-    // echo date_format($date, 'd/m/Y à H:i:s').'<br>';
-    if((int)$comment->idSerie === $serie['id']) {
-        $user = (object) $users->find($comment->users_id);
-        echo '<p>'.$comment->content.' écrit par '.$user->pseudo.' le <strong>'.date_format($date, 'd/m/y à H:i').'</strong></p>';
-        
-    }
-
-}
-
-var_dump($serie['id']);

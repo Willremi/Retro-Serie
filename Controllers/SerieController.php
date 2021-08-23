@@ -52,7 +52,7 @@ class SerieController extends Controller
 
         // Recherche de commentaires actives
         $commentaireModel = new CommentairesModel;
-        $commentaires = $commentaireModel->findBy(['actif' => 1]);
+        $commentaires = $commentaireModel->findBy(['actif' => 1, 'idSerie' => $id]);
 
         // Recherche du pseudo à partir de l'id dans table commentaires(users_id)
         // $userModel = new UsersModel;
