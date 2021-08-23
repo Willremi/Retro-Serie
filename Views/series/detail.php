@@ -155,3 +155,14 @@ $notInfo = "Pas d'infos disponibles";
     </div>
 
 </main>
+<?php
+// var_dump(date_format($commentaires['created_at'], 'd/m/Y à H:i:s'));
+// foreach($commentaires as $comment) {
+//     $users = new UsersModel;
+//     $date = date_create($comment->created_at);
+//     // echo date_format($date, 'd/m/Y à H:i:s').'<br>';
+//     if((int)$comment->idSerie === $serie['id']) {
+//         $user = (object) $users->find($comment->users_id);
+//         echo '<p>'.$comment->content.' écrit par '.$user->pseudo.' le <strong>'.date_format($date, 'd/m/y à H:i').'</strong></p>';
+//     }
+// }
