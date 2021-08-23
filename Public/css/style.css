@@ -51,10 +51,9 @@
 
 /* page détails de série*/
 #listComment {
-  background-color:greenyellow;
+  background-color:rgb(89, 143, 7);
   padding: 1%;
 }
-
 
 /* Liste de saisons */
 ul {

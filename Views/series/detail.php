@@ -141,14 +141,13 @@ $notInfo = "Pas d'infos disponibles";
             $date = date_create($comment->created_at);
             $user = (object) $users->find($comment->users_id);
         ?>
-            <div class="offset-md-3 col-md-6" id="listComment">
-                <div class="commentUser">
-                    <span><strong><?= $user->pseudo ?> | </strong><time><?= date_format($date, 'd/m/y à H:i') ?></time></span>
-                    <hr>
-                    <p><?= $comment->content ?></p>
+            <div class="card border-success mb-3 offset-md-3 col-md-6">
+                <div class="card-header bg-success text-white"><?= ucfirst($user->pseudo) ?></div>
+                <div class="card-body text-success">
+                    <p class="card-text"><?= $comment->content ?></p>
                 </div>
+                <div class="card-footer"><?= date_format($date, 'd/m/y à H:i') ?></div>
             </div>
-            <br>
         <?php } ?>
         <!-- endforeach -->
 
