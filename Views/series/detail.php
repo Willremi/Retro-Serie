@@ -146,7 +146,11 @@ $notInfo = "Pas d'infos disponibles";
                 <div class="card-body text-success">
                     <p class="card-text"><?= $comment->content ?></p>
                 </div>
-                <div class="card-footer"><?= date_format($date, 'd/m/y à H:i') ?></div>
+                <div class="card-footer"><?= date_format($date, 'd/m/y à H:i') ?>
+                <?php if (isset($_SESSION['user']) && !empty($_SESSION['user']['id']) && $_SESSION['user']['id'] == $comment->users_id) : ?>
+                    <button class="suppComment" data-id="<?= $comment->id ?>">Supprimer</button>
+                <?php endif ?>
+                </div>
             </div>
         <?php } ?>
         <!-- endforeach -->

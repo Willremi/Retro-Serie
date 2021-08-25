@@ -45,4 +45,18 @@ window.onload = () => {
              
         });
     });
+
+    let boutonsSupprimer = document.querySelectorAll(".suppComment");
+
+    for(let boutonDelete of boutonsSupprimer) {
+        boutonDelete.addEventListener("click", supprimer)
+    }
+    
+    
+}
+
+function supprimer() {
+    let xmlhttp = new XMLHttpRequest;
+    xmlhttp.open('GET', '/serie/supprimeComment/'+this.dataset.id);
+    xmlhttp.send()
 }

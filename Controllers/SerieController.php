@@ -54,13 +54,6 @@ class SerieController extends Controller
         $commentaireModel = new CommentairesModel;
         $commentaires = $commentaireModel->findBy(['actif' => 1, 'idSerie' => $id]);
 
-        // Recherche du pseudo à partir de l'id dans table commentaires(users_id)
-        // $userModel = new UsersModel;
-        // foreach($commentaires as $comt) {
-        //     $users_id = $comt->users_id; 
-        //     $user = $userModel->find($users_id);
-        // }
-
         $this->render('series/detail', ['serie' => $serie, 'credits' => $credits, 'formComment' => $form->create(), 'commentaires' => $commentaires], 'series');
         // var_dump($serie['id']);
     }
@@ -76,6 +69,20 @@ class SerieController extends Controller
         $this->render('series/saison', ['saison' => $saison, 'serie' => $serie, 'credits' => $credits], 'series');
 
         // var_dump($saison);
+
+    }
+
+    public function supprimeComment(int $id)
+    {
+        $commentairesModel = new CommentairesModel;
+        $commentaireArray = $commentairesModel->find($id);
+
+        if($commentaireArray) {
+            $commentaire = $commentairesModel->hydrate($commentaireArray);
+            $commentaire->setActif($commentaire->getActif() ? 0 : 1);
+            $commentaire->update();
+            // header('Location: '.$_SERVER['HTTP_REFERER']);
+        }
 
     }
 }
