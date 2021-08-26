@@ -55,8 +55,17 @@ window.onload = () => {
     
 }
 
-function supprimer() {
-    let xmlhttp = new XMLHttpRequest;
-    xmlhttp.open('GET', '/serie/supprimeComment/'+this.dataset.id);
-    xmlhttp.send()
+function supprimer(e) {
+    // let xmlhttp = new XMLHttpRequest;
+    // xmlhttp.open('GET', '/serie/supprimeComment/'+this.dataset.id);
+    // xmlhttp.send()
+    e.preventDefault();
+    let $a = $(this);
+    let url = '/serie/supprimeComment/'+this.dataset.id
+    $.ajax(url, {
+        success: function(data, textStatus, jqXHR) {
+            $a.parents('.card').remove();
+            document.location.reload();
+        }
+    });
 }
