@@ -31,12 +31,21 @@ $pageTitle = "Rechercher série(s)";
             </div>
         <?php endforeach ?>
     </div> <!-- Fin row -->
-<?php else: ?>
-    
+<?php else : ?>
+
+    <h2>Le classement des 20 séries populaires entre 1950 et 2010</h2>
+    <div>
+        <p class="annees">Liste des séries :
+            <a href="/listSerie/annees/1950" target="_blank">Années 50</a> /
+            <a href="/listSerie/annees/1960" target="_blank">Années 60</a> /
+            <a href="/listSerie/annees/1970" target="_blank">Années 70</a> /
+            <a href="/listSerie/annees/1980" target="_blank">Années 80</a> /
+            <a href="/listSerie/annees/1990" target="_blank">Années 90</a> /
+            <a href="/listSerie/annees/2000" target="_blank">Années 2000</a>
+        </p>
+    </div>
     <div class="row">
-        <h2>Le classement des 20 séries populaires entre 1950 et 2010</h2>
-        <p></p>
-        <?php foreach($popTv as $pop): ?>
+        <?php foreach ($popTv as $pop) : ?>
             <div class="col-sm-6 col-md-3">
                 <a href="/serie/detail/<?= $pop['idSerie'] ?>" target="_blank">
                     <div class="card text-white bg-success mb-3">
@@ -54,5 +63,5 @@ $pageTitle = "Rechercher série(s)";
                 </a>
             </div>
         <?php endforeach ?>
-    </div><!-- fin row --> 
+    </div><!-- fin row -->
 <?php endif ?>

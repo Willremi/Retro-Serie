@@ -62,10 +62,13 @@ function supprimer(e) {
     e.preventDefault();
     let $a = $(this);
     let url = '/serie/supprimeComment/'+this.dataset.id
-    $.ajax(url, {
-        success: function(data, textStatus, jqXHR) {
-            $a.parents('.card').remove();
-            document.location.reload();
-        }
-    });
+    let confirmer = confirm("Êtes-vous sûr de supprimer votre commentaire ?")
+    if(confirmer) {
+        $.ajax(url, {
+            success: function() {
+                $a.parents('.card').remove();
+                document.location.reload();
+            }
+        });
+    }
 }

@@ -202,6 +202,27 @@ class OpenApi
     }
 
     /**
+     * Fonction pour appeler la liste des séries populaires par décennies
+     *
+     * @param string $anneeDebut
+     * @param string $anneeFin
+     * @param integer $page
+     * @return array|null
+     */
+    public function getListByYear(string $anneeDebut, string $anneeFin, int $page): ?array
+    {
+        $data = $this->callApi('discover/tv', '&sort_by=popularity.desc&first_air_date.gte='.$anneeDebut.'-01-01&first_air_date.lte='.$anneeFin.'-12-31&timezone=France%2FParis&include_null_first_air_dates=false&page='.$page);
+
+        $results = [
+            'page' => $data['page'], 
+            'pagesTotales' => $data['total_pages'], 
+            'results' => $data['results'] 
+        ];
+
+        return $results;
+    }
+
+    /**
      * Fonction pour appeler à la recherche de personnalités
      *
      * @param string $query
