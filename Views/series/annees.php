@@ -1,12 +1,7 @@
 <?php
 $url = explode('/', $_GET['p']);
 $pageTitle = "Séries des années " . $url[2];
-// Pagination par années
-// if (isset($url[2]) && !empty($url[2])) {
-//     $currentYear = $url[2];
-// } else {
-//     $currentYear = 1950;
-// }
+// Pagination
 ?>
 <h1>Liste des séries populaires des années <?= $url[2] ?></h1>
 <div id="ligne"></div>
