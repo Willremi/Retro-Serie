@@ -38,9 +38,9 @@ $pageTitle = "Séries des années " . $url[2];
         <?php foreach ($series['results'] as $serie) : ?>
             <div class="col-sm-6 col-md-3">
                 <a href="/serie/detail/<?= $serie['id'] ?>" target="_blank">
-                    <div class="card text-white bg-success mb-3">
+                    <div class="card text-white bg-success mb-3 seriesPop">
                         <div class="card-header"><?= $serie['name'] ?></div>
-                        <img src="<?= !$serie['poster_path'] ? '/img/LogoTV300.png' : 'https://image.tmdb.org/t/p/w300/' . $serie['poster_path'] ?>" class="card-img-top" id="popular" alt="image de <?= $serie['name'] ?>">
+                        <!-- <img src="<?= !$serie['poster_path'] ? '/img/LogoTV300.png' : 'https://image.tmdb.org/t/p/w300/' . $serie['poster_path'] ?>" class="card-img-top" id="popular" alt="image de <?= $serie['name'] ?>"> -->
                         <div class="card-body">
                             <h5 class="card-title"><?= $serie['original_name'] ?></h5>
                             <p class="card-text">

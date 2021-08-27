@@ -35,7 +35,7 @@ $pageTitle = "Rechercher série(s)";
 
     <h2>Le classement des 20 séries populaires entre 1950 et 2010</h2>
     <div>
-        <p class="annees">Liste des séries :
+        <p class="years">Liste des séries :
             <a href="/listSerie/annees/1950" target="_blank">Années 50</a> /
             <a href="/listSerie/annees/1960" target="_blank">Années 60</a> /
             <a href="/listSerie/annees/1970" target="_blank">Années 70</a> /

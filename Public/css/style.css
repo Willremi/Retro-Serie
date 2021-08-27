@@ -22,7 +22,7 @@
     text-align: start;
   }
 
-  .resumeNull, #introSaison, .introBio, .card-text, .annees {
+  .resumeNull, #introSaison, .introBio, .card-text, .years {
     text-align: center !important;
   }
 
@@ -59,6 +59,7 @@
 ul {
   list-style-type: none;
 }
+
 
 /* image de célébrité */
 .celebs {
