@@ -69,6 +69,15 @@ ul {
 	height: 244px;
 }
 
+/* liste des séries populaire par décennies*/
+.annees {
+  color: rgb(45, 139, 92);
+}
+.annees:hover {
+  background-color: rgb(45, 139, 92);
+  color: white;
+}
+
 /* Footer */
 footer {
   display: flex;
