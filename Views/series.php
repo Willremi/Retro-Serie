@@ -26,9 +26,32 @@
             <li class="nav-item">
               <a class="nav-link" href="/listSerie">Liste</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="/search/tv">Séries</a>
+            </li> -->
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Séries
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/search/tv">Recherche</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="/listSerie/annees/1950">Années 1950</a></li>
+                <li><a class="dropdown-item" href="/listSerie/annees/1960">Années 1960</a></li>
+                <li><a class="dropdown-item" href="/listSerie/annees/1970">Années 1970</a></li>
+                <li><a class="dropdown-item" href="/listSerie/annees/1980">Années 1980</a></li>
+                <li><a class="dropdown-item" href="/listSerie/annees/1990">Années 1990</a></li>
+                <li><a class="dropdown-item" href="/listSerie/annees/2000">Années 2000</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="/listSerie/annees/all">1950-2009</a></li>
+              </ul>
             </li>
+
             <li class="nav-item">
               <a class="nav-link" href="/search/person">Acteurs</a>
             </li>

@@ -42,6 +42,7 @@ $pageTitle = "Rechercher série(s)";
             <a href="/listSerie/annees/1980" target="_blank">Années 80</a> /
             <a href="/listSerie/annees/1990" target="_blank">Années 90</a> /
             <a href="/listSerie/annees/2000" target="_blank">Années 2000</a>
+            <a href="/listSerie/annees/all" target="_blank">Toutes</a>
         </p>
     </div>
     <div class="row">

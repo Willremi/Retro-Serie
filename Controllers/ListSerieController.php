@@ -15,7 +15,7 @@ class ListSerieController extends Controller
         $this->render('series/index', compact('api'), 'series');
     }
 
-    public function annees(int $id, $page = 1)
+    public function annees(string $id, $page = 1)
     {
         $api = new OpenApi('c595147bf4af143ab2df16843f9487bf');
         // if($id == 1950) {
@@ -46,7 +46,11 @@ class ListSerieController extends Controller
                 $series = $api->getListByYear('2000', '2009', $page);
                 // var_dump($series);
                 break;
-
+            case 'all':
+                $series = $api->getListByYear('1950', '2009', $page);
+                // var_dump($series);
+                break;
+            
             default:
                 header('Location: /search/tv');
                 break;
