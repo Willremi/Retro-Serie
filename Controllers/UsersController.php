@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Core\Form;
+use App\Core\OpenApi;
+use App\Models\CommentairesModel;
 use App\Models\UsersModel;
 
 class UsersController extends Controller
@@ -148,9 +150,17 @@ class UsersController extends Controller
      */
     public function profil(int $id)
     {
-        $model = new UsersModel;
-        $user = $model->find($id);
-        $this->render('users/profil', compact('user'));
+        $usersModel = new UsersModel;
+        $user = (object)$usersModel->find($id);
+
+        $commentairesModel = new CommentairesModel;
+        $commentaires = $commentairesModel->findBy(['users_id'=>$user->id,'actif'=>1]);
+
+        // Traitement avec l'API TMDB
+        $api = new OpenApi('c595147bf4af143ab2df16843f9487bf');
+        
+
+        $this->render('users/profil', ['user' => $user, 'commentaires' => $commentaires, 'api' => $api]);
     }
 
     /**
@@ -165,7 +175,7 @@ class UsersController extends Controller
             $userModel = new UsersModel;
 
             // Recherche de l'utilisateur avec l'id $id
-            $user = $userModel->find($id);
+            $user = (object) $userModel->find($id);
 
             //Traitemant du formulaire
             if(Form::validate($_POST, ['email', 'pseudo'])) {
@@ -240,7 +250,7 @@ class UsersController extends Controller
         if (isset($_SESSION['user']) && !empty($_SESSION['user']['id'])) {
             // Instancie le modèle
             $userModel = new UsersModel;
-            $user = $userModel->find($id);
+            $user = (object)$userModel->find($id);
             $userModel->setId($user->id)
                     ->setActif(0);
             $userModel->update();
