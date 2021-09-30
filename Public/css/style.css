@@ -6,6 +6,10 @@
   .bg-info {
     background-color: rgb(45, 139, 92) !important;
   }
+
+  .dropdown-menu.show {
+    left: -30px !important;
+  }
   
 /* Main */
   main {
