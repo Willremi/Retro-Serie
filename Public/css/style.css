@@ -59,6 +59,13 @@
   padding: 1%;
 }
 
+#infos {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
 /* Liste de saisons */
 ul {
   list-style-type: none;

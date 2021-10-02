@@ -14,7 +14,7 @@ $notInfo = "Pas d'infos disponibles";
 <div id="ligne"></div>
 <br>
 <div class="row">
-    <div class="col-md-6 order-sm-1 order-md-0">
+    <div class="col-md-6 order-sm-1 order-md-0" id="infos">
         <ul>
 
             <li>Genre : <?= !$serie['genre'] ? $notInfo : $serie['genre'][0]['name'] ?></li>
@@ -169,3 +169,4 @@ $notInfo = "Pas d'infos disponibles";
 //         echo '<p>'.$comment->content.' écrit par '.$user->pseudo.' le <strong>'.date_format($date, 'd/m/y à H:i').'</strong></p>';
 //     }
 // }
+// 
