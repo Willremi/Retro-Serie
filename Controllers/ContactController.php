@@ -55,6 +55,7 @@ class ContactController extends Controller
                 $mail->isSMTP();
                 $mail->Host = "localhost";
                 $mail->Port = 1025;
+                $mail->SMTPAutoTLS = false;
 
                 // Charset
                 $mail->CharSet = "utf-8";
