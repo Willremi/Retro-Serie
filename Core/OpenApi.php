@@ -124,7 +124,7 @@ class OpenApi
             'photo' => $data['profile_path'], 
             'placeBirth' => $data['place_of_birth'], 
             'dateBirth' => date('d/m/Y', strtotime($data['birthday'])), 
-            'dateDeath' => date('d/m/Y', strtotime($data['deathday'])), 
+            'dateDeath' => date('d/m/Y', strtotime($data['deathday'] ?? '')), 
             'job' => $data['known_for_department'], 
             'bio' => $data['biography'], 
             'sexe' => $data['gender']
