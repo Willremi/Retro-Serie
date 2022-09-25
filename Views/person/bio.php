@@ -80,8 +80,7 @@ usort($credits['crew'], function ($a, $b) {
                     <?php foreach ($credits['crew'] as $crew) : ?>
                         <tr>
                             <?php
-                            $anneeReal = date('Y', strtotime($crew['first_air_date']));
-    
+                            $anneeReal = $crew['first_air_date'] ? date('Y', strtotime($crew['first_air_date'])) : "Pas d'infos disponibles";
                             if ($anneeReal > $anneeNaissance) :
                             ?>
                                 <td><?= $anneeReal ?></td>
