@@ -53,7 +53,7 @@ usort($credits['crew'], function ($a, $b) {
                     <?php foreach ($credits['cast'] as $cast) : ?>
                         <tr>
                             <?php
-                            $anneeRole = date('Y', strtotime($cast['first_air_date']));
+                            $anneeRole = $cast['first_air_date'] ? date('Y', strtotime($cast['first_air_date'])) : "Pas d'infos disponibles";
                             if ($anneeRole > $anneeNaissance) : ?>
                                 <td><?= $anneeRole ?></td>
                                 <td><a href="/serie/detail/<?= $cast['id'] ?>" target="_blank"><?= $cast['name'] ?></a></td>
