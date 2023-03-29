@@ -13,7 +13,7 @@
 
 <body>
   <header class="sticky-top">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark <?= (isset($_SESSION['user']) && !empty($_SESSION['user']['id'])) ? 'bg-info' : 'bg-dark' ?>">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">
           <img src="/img/LogoTV.png" alt="logoTv">

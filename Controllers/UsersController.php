@@ -29,7 +29,7 @@ class UsersController extends Controller
             // Hydratation de l'utilisateur
             $user = new UsersModel;
             $userVerif = $user->findOneByEmail($email);
-            $roles = json_encode($user->getRoles());
+            // $roles = json_encode($user->getRoles());
             // $actif = $user->getActif();
             // $roles = json_encode(['ROLE_USER']);
             
